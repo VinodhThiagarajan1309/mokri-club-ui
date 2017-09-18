@@ -94,7 +94,7 @@ if (navigator.mediaDevices.getUserMedia) {
         var xhr = new XMLHttpRequest();
 
         // Open the connection.
-        xhr.open('POST', 'https://vinodh.adaptainer.io/templer/upload/', true);
+        xhr.open('POST', 'https://vinodh.adaptainer.io/services/upload/', true);
 
 
         // Set up a handler for when the request finishes.

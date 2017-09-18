@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 
 			var zdrop = new Dropzone(target, {
-				url: 'https://vinodh.adaptainer.io/tryMpeg/upload/',
+				url: 'https://vinodh.adaptainer.io/services/upload/',
 				acceptedFiles: ".mp3",
                 maxFiles:1,
 				maxFilesize:10,

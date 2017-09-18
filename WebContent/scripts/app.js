@@ -66,7 +66,7 @@ if (navigator.mediaDevices.getUserMedia) {
       clipLabel.textContent = "My First Mokri";
 
       audio.controls = true;
-      var blob = new Blob(chunks, { 'type' : 'audio/oga; codecs=opus'});
+      var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus'});
       chunks = [];
 
 // Create a new FormData object.
@@ -82,7 +82,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
 
       // Add the file to the request.
-        formData.append('file', file, "wow2.oga");
+        formData.append('file', file, "mokri.ogg");
 
 // This file object is retrieved from a file input.
       //formData.append('file', file);
@@ -92,7 +92,7 @@ if (navigator.mediaDevices.getUserMedia) {
         var xhr = new XMLHttpRequest();
 
         // Open the connection.
-        xhr.open('POST', 'https://vinodh.adaptainer.io/templer/upload/', true);
+        xhr.open('POST', 'https://vinodh.adaptainer.io/services/upload/', true);
 
 
         // Set up a handler for when the request finishes.

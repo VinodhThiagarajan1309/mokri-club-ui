@@ -12,7 +12,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
@@ -21,12 +20,12 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link href="styles/app.css" rel="stylesheet" type="text/css">
     <link href="styles/install-button.css" rel="stylesheet" type="text/css">
-
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-
     <!-- Custom styles for this template -->
     <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
@@ -40,7 +39,8 @@
           Menu
           <i class="fa fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- DO NOT DELETE THIS -->
+        <!--<div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#download">Download</a>
@@ -52,7 +52,7 @@
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
           </ul>
-        </div>
+        </div>-->
       </div>
     </nav>
 
@@ -61,50 +61,92 @@
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
-              <h3 class="mb-5">Record and Play your Mokri message to someone over a phone call. You can upload an audio file of your choice too, but Hey! be easy on the file size. Let me guess. 5MB or less than that.</h3>
+              <h3 class="mb-5">Record and Play your Mokri message to someone over a phone call.
+                You can upload an audio file of your choice too, but Hey! be easy on the file size.
+                Let me guess. 5MB or less than that.</h3>
               <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger"> Record </a>
               <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger"> Upload </a>
 
             </div>
           </div>
-          <div class="col-lg-5 my-auto">
-            <div class="">
-              <div class="">
-                <div class="">
-                  <div class="">
-                    <div class="wrapper">
 
-                      <header>
-                        <h3>Record Your First Mokri here</h3>
-                      </header>
-
-                      <section class="main-controls">
-                        <canvas class="visualizer" height="60px"></canvas>
-                        <div id="buttons">
-                          <button class=" btn btn-outline btn-xl record">Record</button>
-                          <button class="btn btn-outline btn-xl stop">Stop</button>
-                        </div>
-                      </section>
-
-                      <section class="sound-clips">
+          <!-- Comment/Un comment this block for recorder -->
+          <div class="col-lg-5 my-auto" >
 
 
-                      </section>
 
+            <div class="wrapper">
+
+              <header>
+                <h3>Record Your First Mokri here</h3>
+              </header>
+
+              <section class="main-controls">
+                <canvas class="visualizer" height="60px"></canvas>
+                <div id="buttons">
+                  <button class=" btn btn-outline btn-xl record">Record</button>
+                  <button class="btn btn-outline btn-xl stop">Stop</button>
+                </div>
+              </section>
+
+              <section class="sound-clips">
+
+
+              </section>
+
+            </div> <!--wrapper-->
+
+
+          </div>
+          <!-- Comment/Un comment this block for recorder -->
+
+
+          <!-- Comment/Un comment this block for dropzone -->
+          <!--<div class="col-lg-5 my-auto">
+              &lt;!&ndash; Dropzone block begins here &ndash;&gt;
+              &lt;!&ndash;teste dropzone com preview&ndash;&gt;
+              <div class="row" >
+                <div class="col s12">
+                  &lt;!&ndash; Uploader Dropzone &ndash;&gt;
+                  <form id="zdrop" class="fileuploader center-align">
+                    <div id="upload-label" style="width: 100px;">
+                      <i class="small material-icons">add_box</i>
                     </div>
-                  </div>
-                  <div class="button">
-                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                    <span class="tittle">Click the Button or Drop Files Here</span>
+                  </form>
+
+                  &lt;!&ndash; Preview collection of uploaded documents &ndash;&gt;
+                  <div class="preview-container">
+                    <div class="collection card" id="previews">
+                      <div class="collection-item clearhack valign-wrapper item-template" id="zdrop-template">
+                        <div class="left pv zdrop-info" data-dz-thumbnail>
+                          <div>
+                            <span data-dz-name></span> <span data-dz-size></span>
+                          </div>
+                          <div class="progress">
+                            <div class="determinate" style="width:0" data-dz-uploadprogress></div>
+                          </div>
+                          <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                        </div>
+
+                        <div class="secondary-content actions">
+                          <a href="#!" data-dz-remove class="btn-floating ph red white-text waves-effect waves-light"><i class="material-icons white-text">clear</i></a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+          </div>-->
+          <!-- Comment/Un comment this block for dropzone -->
+<!-- Dropzone block ends here -->
+
         </div>
       </div>
     </header>
 
-    <section class="download bg-primary text-center" id="download">
+    <!-- DO NOT DELETE THIS CODE BELOW -->
+    <!--<section class="download bg-primary text-center" id="download">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
@@ -118,8 +160,8 @@
         </div>
       </div>
     </section>
-
-    <section class="features" id="features">
+-->
+<!--    <section class="features" id="features">
       <div class="container">
         <div class="section-heading text-center">
           <h2>Unlimited Features, Unlimited Fun</h2>
@@ -132,11 +174,11 @@
               <div class="device-mockup iphone6_plus portrait white">
                 <div class="device">
                   <div class="screen">
-                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    &lt;!&ndash; Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! &ndash;&gt;
                     <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
                   </div>
                   <div class="button">
-                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                    &lt;!&ndash; You can hook the "home button" to some JavaScript events or just remove it &ndash;&gt;
                   </div>
                 </div>
               </div>
@@ -180,9 +222,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
-    <section class="cta">
+   <!-- <section class="cta">
       <div class="cta-content">
         <div class="container">
           <h2>Stop waiting.<br>Start building.</h2>
@@ -190,9 +232,9 @@
         </div>
       </div>
       <div class="overlay"></div>
-    </section>
+    </section>-->
 
-    <section class="contact bg-primary" id="contact">
+    <!--<section class="contact bg-primary" id="contact">
       <div class="container">
         <h2>We
           <i class="fa fa-heart"></i>
@@ -216,19 +258,13 @@
         </ul>
       </div>
     </section>
-
+-->
     <footer>
       <div class="container">
         <p>&copy; 2017 Mokri.club</p>
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="#">Privacy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">Terms</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">FAQ</a>
+            <a href="https://www.linkedin.com/in/vinodh-thiagarajan/">Vinodh Thiagarajan</a>
           </li>
         </ul>
       </div>
@@ -238,15 +274,15 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
     <!-- Bootstrap core JavaScript -->
     <script src="scripts/mediaDevices-getUserMedia-polyfill.js"></script>
     <!-- Below is your custom application script -->
     <script src="scripts/app.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/dropzone.js'></script>
+    <script  src="js/index.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
 

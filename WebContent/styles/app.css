@@ -109,8 +109,8 @@ button.delete {
 /* Checkbox hack to control information box display */
 
 label {
-  font-size: 3rem;
-  position: absolute;
+  font-size: .85rem;
+  /*position: absolute;*/
   top: 2px;
   right: 3px;
   z-index: 5;

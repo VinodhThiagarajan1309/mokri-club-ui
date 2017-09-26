@@ -14,6 +14,8 @@ stop.disabled = true;
 
 var audioCtx = new (window.AudioContext || webkitAudioContext)();
 var canvasCtx = canvas.getContext("2d");
+var timeInterval;
+var recordingTime = 0;
 
 //main block for doing the audio recording
 
@@ -22,6 +24,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   var constraints = { audio: true };
   var chunks = [];
+  var audioFileUrl;
 
   var onSuccess = function(stream) {
     var mediaRecorder = new MediaRecorder(stream);
@@ -36,6 +39,16 @@ if (navigator.mediaDevices.getUserMedia) {
 
       stop.disabled = false;
       record.disabled = true;
+      recordingTime = 1;
+
+      timeInterval = setInterval(function() {
+        recordingTime++;
+
+        if(recordingTime == 60) {
+          $(".stop").click();
+          clearInterval(timeInterval);
+        }
+      }, 1000);
     }
 
     stop.onclick = function() {
@@ -55,13 +68,18 @@ if (navigator.mediaDevices.getUserMedia) {
 
       var clipContainer = document.createElement('article');
       var clipLabel = document.createElement('p');
+      // var clipLabell = document.createElement('input');
       var audio = document.createElement('audio');
       var deleteButton = document.createElement('button');
+      var proceedButton = document.createElement('button');
      
       clipContainer.classList.add('clip');
       audio.setAttribute('controls', '');
       deleteButton.textContent = 'Delete';
       deleteButton.className = 'delete';
+
+      proceedButton.textContent = 'Proceed';
+      proceedButton.className = 'proceed';
 
       clipLabel.textContent = "My First Mokri";
 
@@ -98,7 +116,9 @@ if (navigator.mediaDevices.getUserMedia) {
         // Set up a handler for when the request finishes.
         xhr.onload = function () {
           if (xhr.status === 200) {
-            clipLabel.textContent = xhr.responseText;
+            audioFileUrl = xhr.responseText;
+            var obj = JSON.parse(audioFileUrl);
+            $("#recordedFileUrl").val(obj.s3Location);
           } else {
             alert(':-()');
             //statusDiv.innerHTML = 'An error occurred while uploading the file. Try again';
@@ -110,7 +130,9 @@ if (navigator.mediaDevices.getUserMedia) {
 
       clipContainer.appendChild(audio);
       clipContainer.appendChild(clipLabel);
+      // clipContainer.appendChild(clipLabell);
       clipContainer.appendChild(deleteButton);
+      clipContainer.appendChild(proceedButton);
       soundClips.appendChild(clipContainer);
 
       var audioURL = window.URL.createObjectURL(blob);
@@ -120,7 +142,11 @@ if (navigator.mediaDevices.getUserMedia) {
       deleteButton.onclick = function(e) {
         evtTgt = e.target;
         evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-      }
+      };
+
+      proceedButton.onclick = function() {
+        $("#myModal").modal('show');
+      };
 
       clipLabel.onclick = function() {
         var existingName = clipLabel.textContent;

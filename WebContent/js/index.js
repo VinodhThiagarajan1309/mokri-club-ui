@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+	var proceedButton = document.createElement('button');
+	proceedButton.textContent = 'Proceed'; 
+	proceedButton.className = 'upload_proceed';
+	proceedButton.onclick = function() { 
+		$("#myModal").modal('show'); 
+	};
+
 	initFileUploader("#zdrop");
 		function initFileUploader(target) {
 			var previewNode = document.querySelector("#zdrop-template");
@@ -18,7 +25,9 @@ $(document).ready(function(){
 				clickable: "#upload-label",
 				success: function(file, response) {
 					var responsetext = JSON.parse(file.xhr.responseText);
-					console.log(responsetext);
+					$("#recordedFileUrl").val(responsetext.s3Location);
+					$("#previews").after(proceedButton);
+					$("#record_btn").removeClass('disabled');
 				}
 			});
 
@@ -29,8 +38,6 @@ $(document).ready(function(){
 			zdrop.on("totaluploadprogress", function (progress) {
 				var progr = document.querySelector(".progress .determinate");
 					if (progr === undefined || progr === null)
-							return;
-
 						progr.style.width = progress + "%";
 					});
 

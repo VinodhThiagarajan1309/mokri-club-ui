@@ -26,7 +26,38 @@
     <link href="css/new-age.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+    <!-- calender -->
+  
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="js/jquery.datetimepicker.full.js"></script>
+    <!-- calender -->
+     <script type="text/javascript">
+      $(document).ready(function(){
+          $("#record_btn:not(.disabled)").click(function(){
+              $(".alert-success,.alert-danger").remove();
+              $("#uploadfile_div").hide();
+              $("#record_div").show();
+          });
 
+          $(".record").click(function(){
+              $(".alert-success,.alert-danger").remove();
+              $("#upload_btn").addClass('disabled');
+          });
+
+          $(".stop").click(function(){
+              $(".alert-success,.alert-danger").remove();
+              $("#upload_btn").removeClass('disabled');
+          });
+
+          $("#upload_btn:not(.disabled)").click(function(){
+              $(".alert-success,.alert-danger").remove();
+              $("#record_div").hide();
+              $("#uploadfile_div").show();
+              $("#record_btn").addClass('disabled');              
+          });
+      });
+    </script>
   </head>
 
   <body id="page-top">
@@ -64,14 +95,14 @@
               <h3 class="mb-5">Record and Play your Mokri message to someone over a phone call.
                 You can upload an audio file of your choice too, but Hey! be easy on the file size.
                 Let me guess. 5MB or less than that.</h3>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger"> Record </a>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger"> Upload </a>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger" id="record_btn"> Record </a>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger" id="upload_btn"> Upload </a>
 
             </div>
           </div>
 
           <!-- Comment/Un comment this block for recorder -->
-          <div class="col-lg-5 my-auto" >
+         <div class="col-lg-5 my-auto" id="record_div">
 
 
 
@@ -94,17 +125,17 @@
 
               </section>
 
-            </div> <!--wrapper-->
+            </div> 
 
 
-          </div>
+          </div><!--wrapper-->
           <!-- Comment/Un comment this block for recorder -->
 
 
           <!-- Comment/Un comment this block for dropzone -->
-          <!--<div class="col-lg-5 my-auto">
-              &lt;!&ndash; Dropzone block begins here &ndash;&gt;
-              &lt;!&ndash;teste dropzone com preview&ndash;&gt;
+          <div class="col-lg-5 my-auto" id="uploadfile_div"  style="display:none;" >
+             <!--  &lt;!&ndash; Dropzone block begins here &ndash;&gt;
+              &lt;!&ndash;teste dropzone com preview&ndash;&gt; -->
               <div class="row" >
                 <div class="col s12">
                   &lt;!&ndash; Uploader Dropzone &ndash;&gt;
@@ -115,7 +146,7 @@
                     <span class="tittle">Click the Button or Drop Files Here</span>
                   </form>
 
-                  &lt;!&ndash; Preview collection of uploaded documents &ndash;&gt;
+                  <!-- &lt;!&ndash; Preview collection of uploaded documents &ndash;&gt; -->
                   <div class="preview-container">
                     <div class="collection card" id="previews">
                       <div class="collection-item clearhack valign-wrapper item-template" id="zdrop-template">
@@ -123,10 +154,10 @@
                           <div>
                             <span data-dz-name></span> <span data-dz-size></span>
                           </div>
-                          <div class="progress">
+                          <div class="progress progressbar">
                             <div class="determinate" style="width:0" data-dz-uploadprogress></div>
                           </div>
-                          <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                          <div class="dz-error-message spancolor"><span data-dz-errormessage></span></div>
                         </div>
 
                         <div class="secondary-content actions">
@@ -137,7 +168,7 @@
                   </div>
                 </div>
               </div>
-          </div>-->
+          </div>
           <!-- Comment/Un comment this block for dropzone -->
 <!-- Dropzone block ends here -->
 
@@ -261,7 +292,7 @@
 -->
 
     <!-- Button HTML (to Trigger Modal) -->
-    <a href="#myModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Launch Demo Modal</a>
+    <!-- <a href="#myModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Launch Demo Modal</a> -->
 
     <footer>
       <div class="container">
@@ -275,9 +306,14 @@
     </footer>
 
 
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+
+
+
     <!-- Bootstrap core JavaScript -->
     <script src="scripts/mediaDevices-getUserMedia-polyfill.js"></script>
     <!-- Below is your custom application script -->
@@ -290,7 +326,7 @@
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
 
-  </body>
+ 
 
 
   <div id="myModal" class="modal fade">
@@ -301,28 +337,60 @@
           <h4 class="modal-title">Confirmation</h4>
         </div>
         <div class="modal-body">
-
-          <form role="form">
+          <form role="form" id="makeCall">
             <div class="form-group">
-              <label for="exampleInputEmail1">What number you want to call ?</label>
-              <input type="email" class="form-control"
-                     id="exampleInputEmail1" placeholder="Enter the number with country code."/>
+              <label for="phoneNumber">What number you want to call ?</label>
+              <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter the number with country code." required />
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Choose the Date and Time for Scheduling</label>
-              <input type="password" class="form-control"
-                     id="exampleInputPassword1" placeholder="This must be a calendar with time"/>
+              <input type="text" class="form-control some_class" id="yyyymmddhhmmString" name="yyyymmddhhmmString" placeholder="This must be a calendar with time" required />
+              <input type="hidden" name="recordedFileUrl" id="recordedFileUrl" required>
+              <input type="submit" id="submitCall" style="display: none;">
             </div>
           </form>
-
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Mokri It !</button>
+          <button type="button" id="mokriit" class="btn btn-primary">Mokri It !</button>
         </div>
       </div>
     </div>
-  </div>
+  </div>      
+  <script type="text/javascript">
+    $.datetimepicker.setLocale('en');
+    $('.some_class').datetimepicker();
 
+    $(document).ready(function() {
+        $(document).on("click", "#mokriit", function() {
+            $("#submitCall").click();
+        });
+
+        $(document).on("submit", "#makeCall", function(e) {
+            e.preventDefault();
+
+            $("#mokriit").attr("disabled", "disabled");
+            $(".alert-success,.alert-danger").remove();
+
+            $.ajax({
+                url: 'https://vinodh.adaptainer.io/services/makeTheCall',
+                type: 'POST',
+                data: $("#makeCall").serializeArray(),
+                success: function() {
+                    $("#myModal").modal('hide');
+                    $("#mokriit").removeAttr("disabled");
+                    $(".sound-clips").append('<div class="alert alert-success"><strong>Success!</strong> Call Scheduled</div>');
+                    $(".preview-container").append('<div class="alert alert-success" style="float:left;width:100%;margin-top: 10px;"><strong>Success!</strong> Call Scheduled</div>');
+                },
+                error: function() {
+                    $("#myModal").modal('hide');
+                    $("#mokriit").removeAttr("disabled");
+                    $(".sound-clips").append('<div class="alert alert-danger"><strong>Error!</strong> Please try again</div>');
+                    $(".preview-container").append('<div class="alert alert-danger" style="float:left;width:100%;margin-top: 10px;"><strong>Error!</strong> Please try again</div>');
+                }
+            });
+        });        
+    });
+  </script>
+  </body>
 </html>

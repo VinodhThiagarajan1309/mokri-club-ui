@@ -106,6 +106,50 @@ button.delete {
   font-size: 0.8rem;
 }
 
+button.proceed {
+  background: #0088cc;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-right: 8px;
+}
+
+button.upload_proceed {
+  background: #0088cc;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  float: right;
+}
+
+
+
+
+.secondary-content.actions {
+  background-color: red;
+  border-radius: 15px;
+  float: right;
+  margin-top: 3%;
+  text-align: center;
+  width: 5%;
+  margin-right: 13px;
+}
+
+.left.pv.zdrop-info span {
+  color: #000;
+  font-size: 0.8rem;
+}
+
+.collection.card {
+  padding: 5px;
+  background-color: #E0E0E0;
+}
+
+.left.pv.zdrop-info .spancolor span {
+  color: #f44336;
+  font-size: 0.8rem;
+}
+
+
 /* Checkbox hack to control information box display */
 
 label {
@@ -164,3 +208,4 @@ input[type=checkbox]:checked ~ aside {
     margin-top: 100px;
   }
 }
+.progress .determinate{height: 10px;background-color: green;}

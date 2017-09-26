@@ -73,13 +73,14 @@ span.tittle {
   top: 25px;
   visibility: hidden;
 }
-.preview-container #previews{
+/*.preview-container #previews{
   max-height: 400px;
   overflow: auto; 
-}
+}*/
 .preview-container #previews .zdrop-info{
   width: 88%;
   margin-right: 2%;
+  float: left;
 }
 .preview-container #previews.collection{
   margin: 0;
@@ -101,11 +102,15 @@ span.tittle {
 }
 .preview-container #previews.collection .dz-error-message{
   font-size: 0.8em;
-  margin-top: -12px;
+  margin-top: 0px;
   color: #F44336;
 }
 
 
+.bootstrap-datetimepicker-widget {
+ z-index: 100000;
+ background: red!important;
+ }
 
 /*media querie*/
 
@@ -117,4 +122,8 @@ span.tittle {
  .preview-container {
     width: 100%;
   }
+}
+
+.progressbar {
+  margin: 2px 0;
 }
